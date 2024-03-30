@@ -13,7 +13,7 @@ lemm = WordNetLemmatizer()
 warnings.filterwarnings("ignore")
 
 
-data = pd.read_csv("correctDataSet.csv")
+data = pd.read_csv("Ulan-Ude_DataSet.csv")
 print(data.values)
 features = data[['floor','count_floors','rooms','square','district']]
 prices = data['price']
@@ -33,6 +33,7 @@ model.compile(optimizer='adam', loss='mean_squared_error')
 # Обучение модели
 model.fit(X_train, y_train, epochs=1000, batch_size=16, validation_split=0.2)
 
+model.save('model_Ulan-Ude.h5')
 
 
 
